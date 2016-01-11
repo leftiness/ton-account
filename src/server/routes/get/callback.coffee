@@ -5,7 +5,7 @@ messages = require "../../common/messages.js"
 
 route =
 	verb: "get"
-	path: "/callback"
+	path: "/api/callback"
 	fn: [
 		(req, res, next) ->
 			err = req.query?.error
@@ -26,7 +26,7 @@ route =
 				return next json
 			conf =
 				method: "POST"
-				uri: "#{config.hub_url}/api/token"
+				uri: "#{config.hub_url}/oauth2/token"
 				json:
 					grant_type: "authorization_code"
 					code: code

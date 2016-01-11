@@ -4,7 +4,7 @@ config = require "../../../config.json"
 
 route =
 	verb: "get"
-	path: "/login"
+	path: "/api/login"
 	fn: [
 		(req, res) ->
 			state = uuid.v4()
@@ -15,8 +15,12 @@ route =
 			res.cookie "ton-state", state, opts
 			client = config.secret.oauth2.client_id
 			redirect = config.secret.oauth2.redirect_uri
-			url = "/api/authorize?response_type=code&client_id=#{client}"
-			url += "&redirect_uri=#{redirect}&scope=foo&state=#{state}"
+			url = "#{config.hub_url}/oauth2/authorize\
+				?response_type=code\
+				&client_id=#{client}\
+				&redirect_uri=#{redirect}\
+				&scope=foo\
+				&state=#{state}"
 			res.redirect url
 	]
 
