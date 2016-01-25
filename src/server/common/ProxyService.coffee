@@ -12,7 +12,7 @@ service =
 		auth = "#{tokenType} #{accessToken}" if tokenType? and accessToken?
 		conf =
 			method: req.method.toLowerCase()
-			uri: "#{config.hub_url}/api#{req.path}"
+			uri: "#{config.hub_url}#{req.path}"
 			headers:
 				"authorization": auth
 				"X-TON-SECRET-PROOF": proof
