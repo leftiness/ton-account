@@ -3,7 +3,7 @@
 	"hub_url": "http://www.the_hub.com",
 	"secret": {
 		"oauth2": {
-			"client_id": "ton-account",
+			"client_id": "bestapp",
 			"client_secret": "lolsecret",
 			"redirect_uri": "http://www.awesomeapp.com/callback"
 		},
